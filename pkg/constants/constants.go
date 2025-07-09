@@ -562,7 +562,6 @@ const (
 	ConversationTypeChannel = "channel"
 
 	// Message limits
-	MaxMessageLength         = 1000
 	MaxAttachmentsPerMessage = 10
 	MaxParticipantsPerGroup  = 100
 	MessageRetentionDays     = 90

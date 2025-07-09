@@ -160,7 +160,7 @@ func GetLogger() *Logger {
 
 // WithContext creates a logger with context fields
 func (l *Logger) WithContext(ctx context.Context) *logrus.Entry {
-	entry := l.WithFields(logrus.Fields{})
+	entry := l.WithFields(Fields{})
 
 	if requestID := ctx.Value(RequestIDKey); requestID != nil {
 		entry = entry.WithField("request_id", requestID)

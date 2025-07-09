@@ -6,12 +6,15 @@ toolchain go1.23.2
 
 require (
 	github.com/aws/aws-sdk-go v1.55.7
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/disintegration/imaging v1.6.2
 	github.com/gin-gonic/gin v1.10.1
 	github.com/golang-jwt/jwt/v5 v5.2.2
 	go.mongodb.org/mongo-driver v1.17.4
 	golang.org/x/crypto v0.39.0
 )
+
+require github.com/montanaflynn/stats v0.7.1 // indirect
 
 require (
 	github.com/bytedance/sonic v1.11.6 // indirect

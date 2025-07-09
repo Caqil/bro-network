@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"your-project/internal/utils"
+	"bro-network/internal/utils"
 
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -292,7 +292,7 @@ func defaultKeyGenerator(c *gin.Context) string {
 // defaultErrorHandler handles rate limit exceeded
 func defaultErrorHandler(c *gin.Context, info RateLimitInfo) {
 	utils.SetRateLimitInfo(c, int64(info.Limit), int64(info.Remaining), info.ResetTime, "")
-	utils.SendTooManyRequests(c, "Rate limit exceeded")
+	utils.SendError(c, 429, "RATE_LIMIT_EXCEEDED", "Admin action rate limit exceeded")
 	c.Abort()
 }
 
@@ -475,7 +475,7 @@ func CircuitBreakerRateLimit(limit int, window time.Duration, store RateLimitSto
 		ErrorHandler: func(c *gin.Context, info RateLimitInfo) {
 			// Implement circuit breaker logic
 			setCircuitBreakerHeaders(c, info)
-			utils.SendServiceUnavailable(c, "Service temporarily unavailable due to high load")
+			utils.SendBadRequest(c, "Service temporarily unavailable due to high load")
 			c.Abort()
 		},
 	}
