@@ -26,6 +26,7 @@ type User struct {
 	IsActive           bool               `bson:"is_active" json:"is_active"`
 	IsBanned           bool               `bson:"is_banned" json:"is_banned"`
 	Role               UserRole           `bson:"role" json:"role"`
+	Permissions        []string           `bson:"permissions,omitempty" json:"permissions,omitempty"`
 	Settings           UserSettings       `bson:"settings" json:"settings"`
 	Stats              UserStats          `bson:"stats" json:"stats"`
 	SocialLinks        SocialLinks        `bson:"social_links" json:"social_links"`
