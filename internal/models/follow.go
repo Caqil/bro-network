@@ -64,12 +64,14 @@ type FollowListResponse struct {
 }
 
 // FollowSuggestionsResponse represents follow suggestions response
+
 type FollowSuggestionsResponse struct {
-	Suggestions []FollowSuggestion `json:"suggestions"`
-	TotalCount  int64              `json:"total_count"`
-	Page        int                `json:"page"`
-	Limit       int                `json:"limit"`
-	HasMore     bool               `json:"has_more"`
+	Suggestions []*FollowSuggestion `json:"suggestions"`
+	TotalCount  int64               `json:"total_count"`
+	Page        int                 `json:"page"`
+	Limit       int                 `json:"limit"`
+	HasMore     bool                `json:"has_more"`
+	Algorithm   string              `json:"algorithm"`
 }
 
 // FollowFilter represents follow filter options
