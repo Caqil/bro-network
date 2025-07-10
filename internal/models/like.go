@@ -29,17 +29,17 @@ const (
 	LikeTargetMessage LikeTargetType = "message"
 )
 
-// ReactionType represents different types of reactions
 type ReactionType string
 
 const (
-	ReactionLike  ReactionType = "like"
-	ReactionLove  ReactionType = "love"
-	ReactionHaha  ReactionType = "haha"
-	ReactionWow   ReactionType = "wow"
-	ReactionSad   ReactionType = "sad"
-	ReactionAngry ReactionType = "angry"
-	ReactionCare  ReactionType = "care"
+	ReactionTypeLike       ReactionType = "like"
+	ReactionTypeLove       ReactionType = "love"
+	ReactionTypeHaha       ReactionType = "haha"
+	ReactionTypeWow        ReactionType = "wow"
+	ReactionTypeSad        ReactionType = "sad"
+	ReactionTypeAngry      ReactionType = "angry"
+	ReactionTypeThumbsUp   ReactionType = "thumbs_up"
+	ReactionTypeThumbsDown ReactionType = "thumbs_down"
 )
 
 // LikeCreateRequest represents like creation request

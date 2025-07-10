@@ -1091,7 +1091,7 @@ func (s *UserService) GetCurrentUser(ctx context.Context, userID primitive.Objec
 
 // UpdateProfile updates user's profile information
 func (s *UserService) UpdateProfile(ctx context.Context, userID primitive.ObjectID, req *UpdateProfileRequest) error {
-	user, err := s.userRepo.GetByID(ctx, userID)
+	_, err := s.userRepo.GetByID(ctx, userID)
 	if err != nil {
 		return fmt.Errorf("user not found: %w", err)
 	}
