@@ -377,7 +377,7 @@ func (h *PostHandler) LikePost(c *gin.Context) {
 	}
 
 	// Get reaction type from body or default to like
-	reactionType := models.ReactionLike
+	reactionType := models.ReactionTypeLike
 	if body := c.Query("reaction_type"); body != "" {
 		reactionType = models.ReactionType(body)
 	}
@@ -695,7 +695,7 @@ func (h *PostHandler) GetPostCommentsAuth(c *gin.Context) {
 		return
 	}
 
-	utils.SendSuccess(c,response, "Comments retrieved successfully")
+	utils.SendSuccess(c, response, "Comments retrieved successfully")
 }
 
 // GetComment retrieves a single comment
@@ -816,7 +816,7 @@ func (h *PostHandler) LikeComment(c *gin.Context) {
 	}
 
 	// Get reaction type from body or default to like
-	reactionType := models.ReactionLike
+	reactionType := models.ReactionTypeLike
 	if body := c.Query("reaction_type"); body != "" {
 		reactionType = models.ReactionType(body)
 	}

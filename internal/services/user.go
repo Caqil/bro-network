@@ -206,22 +206,6 @@ type PaginationRequest struct {
 	Limit int `json:"limit"`
 }
 
-type FollowersResponse struct {
-	Users      []*models.UserPublicProfile `json:"users"`
-	TotalCount int64                       `json:"total_count"`
-	Page       int                         `json:"page"`
-	Limit      int                         `json:"limit"`
-	HasMore    bool                        `json:"has_more"`
-}
-
-type FollowingResponse struct {
-	Users      []*models.UserPublicProfile `json:"users"`
-	TotalCount int64                       `json:"total_count"`
-	Page       int                         `json:"page"`
-	Limit      int                         `json:"limit"`
-	HasMore    bool                        `json:"has_more"`
-}
-
 type UserExistsResponse struct {
 	Exists   bool                `json:"exists"`
 	Username string              `json:"username"`
@@ -508,11 +492,6 @@ type CloseFriendsResponse struct {
 	HasMore    bool                        `json:"has_more"`
 }
 
-type FollowResponse struct {
-	Success      bool   `json:"success"`
-	Relationship string `json:"relationship"`
-	Message      string `json:"message"`
-}
 
 type ReportUserRequest struct {
 	Reason      string   `json:"reason"`
@@ -521,14 +500,20 @@ type ReportUserRequest struct {
 }
 
 type RelationshipResponse struct {
-	Relationship  string     `json:"relationship"`
-	IsFollowing   bool       `json:"is_following"`
-	IsFollowedBy  bool       `json:"is_followed_by"`
-	IsBlocked     bool       `json:"is_blocked"`
-	IsMuted       bool       `json:"is_muted"`
-	IsCloseFriend bool       `json:"is_close_friend"`
-	CanMessage    bool       `json:"can_message"`
-	FollowedAt    *time.Time `json:"followed_at"`
+	IsFollowing     bool       `json:"is_following"`
+	IsFollower      bool       `json:"is_follower"`
+	IsMutual        bool       `json:"is_mutual"`
+	IsBlocked       bool       `json:"is_blocked"`
+	IsBlockedBy     bool       `json:"is_blocked_by"`
+	IsMuted         bool       `json:"is_muted"`
+	IsCloseFriend   bool       `json:"is_close_friend"`
+	IsRestricted    bool       `json:"is_restricted"`
+	PendingRequest  bool       `json:"pending_request"`
+	ReceivedRequest bool       `json:"received_request"`
+	CanFollow       bool       `json:"can_follow"`
+	CanMessage      bool       `json:"can_message"`
+	FollowedAt      *time.Time `json:"followed_at,omitempty"`
+	MutualCount     int64      `json:"mutual_count"`
 }
 
 type MutualConnectionsResponse struct {
